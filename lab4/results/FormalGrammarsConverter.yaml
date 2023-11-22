@@ -1,30 +1,30 @@
 schedule:
   - day: Saturday
     lessons:
-      - start_time: 10:00
+      - start_time: "10:00"
         subject: Основы дискретной математики (базовый уровень)
         place: ауд. 2337, Кронверкский пр., д.49, лит.А
         teacher: Поляков Владимир Иванович
-      - start_time: 11:40
+      - start_time: "11:40"
         subject: Основы дискретной математики (базовый уровень)
         place: ауд. 2337, Кронверкский пр., д.49, лит.А
         teacher: Поляков Владимир Иванович
-      - start_time: 13:30
+      - start_time: "13:30"
         subject: Россия в истории современных международных отношений
-        place: 
+        place: null
         teacher: Богомазов Николай Иванович
-      - start_time: 15:20
+      - start_time: "15:20"
         subject: Россия в истории современных международных отношений
-        place: 
+        place: null
         teacher: Богомазов Николай Иванович
   - day: Tuesday
     lessons:
-      - start_time: 08:20
+      - start_time: "08:20"
         subject: Математический анализ
         place: ауд. Orange Classroom (1229) Кронверкский пр., д.49, лит.А
         teacher: Правдин Константин Владимирович
         zoom: True
-      - start_time: 10:00
+      - start_time: "10:00"
         subject: Математический анализ
         place: ауд. 2414 Кронверкский пр., д.49, лит.А
         teacher: Борель Лидия Викторовна

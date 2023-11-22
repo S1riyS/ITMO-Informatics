@@ -1,5 +1,6 @@
 from enum import Enum
 import typing as t
+import re
 
 from lab4._base_converter import BaseConverter
 from lab4._utils import is_digit_1_to_9
@@ -197,6 +198,12 @@ class Obj2YAML:
         self.__result = ''
         self.__ignore_indent_flag = False
 
+    @staticmethod
+    def __escape_time(value: str) -> str:
+        if re.match(r'[0-9]{2}:[0-9]{2}', value):
+            return f'"{value}"'
+        return value
+
     def __convert_dict(self, obj: dict, indent: int = 0) -> None:
         for key, value in obj.items():
             if isinstance(value, dict):
@@ -205,6 +212,10 @@ class Obj2YAML:
             elif isinstance(value, list):
                 self.__add_line(f'{key}:', indent)
                 self.__convert_list(value, indent + 1)
+            elif isinstance(value, str):
+                self.__add_line(f'{key}: {self.__escape_time(value)}', indent)
+            elif value is None:
+                self.__add_line(f'{key}: null', indent)
             else:
                 self.__add_line(f'{key}: {value}', indent)
 
@@ -217,6 +228,10 @@ class Obj2YAML:
                 self.__convert_dict(value, indent + 1)
             elif isinstance(value, list):
                 self.__convert_list(value, indent + 1)
+            elif isinstance(value, str):
+                self.__add_line(self.__escape_time(value), indent + 1)
+            elif value is None:
+                self.__add_line('null', indent + 1)
             else:
                 self.__add_line(f'{value}', indent + 1)
 
